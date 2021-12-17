@@ -1,21 +1,25 @@
 import { useState } from 'react';
 
 function App() {
-  const [todo, setTodo] = useState('');
-  const onChange = event => setTodo(event.target.value);
+  const [toDo, setToDo] = useState('');
+  const [toDos, setToDos] = useState([]);
+  const onChange = event => setToDo(event.target.value);
   const onSubmit = event => {
     event.preventDefault();
-    if (todo === '') {
+    if (toDo === '') {
       return;
     }
-    setTodo('');
+    setToDo('');
+    setToDos(currentArray => [toDo, ...currentArray]);
   };
+  console.log(toDos);
   return (
     <div>
+      <h1>나의 할 일 💪🏻</h1>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
-          value={todo}
+          value={toDo}
           type='text'
           placeholder='할 일을 적어보세요.'
         />
