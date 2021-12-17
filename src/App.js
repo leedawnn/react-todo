@@ -16,6 +16,7 @@ function App() {
   return (
     <div>
       <h1>나의 할 일 💪🏻</h1>
+      <h3>현재 {toDos.length}개의 할 일이 남아있습니다.</h3>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
