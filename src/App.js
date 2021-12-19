@@ -12,7 +12,6 @@ function App() {
     setToDo('');
     setToDos(currentArray => [toDo, ...currentArray]);
   };
-  console.log(toDos);
   return (
     <div>
       <h1>나의 할 일 💪🏻</h1>
@@ -26,6 +25,12 @@ function App() {
         />
         <button>추가</button>
       </form>
+
+      <ul>
+        {toDos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
